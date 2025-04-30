@@ -1,0 +1,40 @@
+# Validador de Expressões de Lógica Proposicional em LaTeX
+
+Este programa valida expressões de lógica proposicional escritas em LaTeX, verificando se estão
+*lexico e gramaticalmente corretas*, conforme uma gramática LL(1).
+
+## Funcionalidade
+
+- Analisador léxico com máquina de estados finitos.
+- Parser sintático LL(1).
+- Suporte a:
+  - Conectivos: `\neg`, `\wedge`, `\vee`, `\rightarrow`, `\leftrightarrow`
+  - Constantes: `true`, `false`
+  - Proposições: `[0-9][0-9a-z]*`
+
+## Formato de entrada
+
+Arquivo .txt com:
+- Primeira linha: número de expressões
+- Linhas seguintes: expressões em LaTeX
+
+## Exemplo:
+
+txt
+2
+true
+(\neg false)
+
+
+Gramática usada:
+ 
+FORMULA = CONSTANTE | PROPOSICAO | FORMULAUNARIA | FORMULABINARIA
+CONSTANTE = true | false
+PROPOSICAO = [0-9][0-9a-z]*
+FORMULAUNARIA = ( \neg FORMULA )
+FORMULABINARIA = ( OPERADORBINARIO FORMULA FORMULA )
+
+Como Executar:
+
+python3 validador.py 
+entrada1.txt
