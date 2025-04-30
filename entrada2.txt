@@ -1,0 +1,3 @@
+2
+(\neg false)
+(\wedge 1a (\neg 2b))
