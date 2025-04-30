@@ -1,7 +1,5 @@
-import sys
 import re
 
-# === Tokens possíveis ===
 TOKENS = {
     '(': 'ABREPAREN',
     ')': 'FECHAPAREN',
@@ -14,10 +12,8 @@ TOKENS = {
     'false': 'CONSTANTE'
 }
 
-# === Expressão regular para proposições ===
 PROP_REGEX = re.compile(r'[0-9][0-9a-z]*$')
 
-# === Analisador léxico ===
 def lexer(expr):
     tokens = []
     expr = expr.strip()
@@ -43,7 +39,6 @@ def lexer(expr):
                 return None  # erro léxico
     return tokens
 
-# === Analisador sintático LL(1) ===
 class Parser:
     def __init__(self, tokens):
         self.tokens = tokens
@@ -85,25 +80,3 @@ class Parser:
                     return False
                 return self.consumir('FECHAPAREN')
         return False
-
-# === Programa principal ===
-def main():
-    if len(sys.argv) != 2:
-        print("Uso: python3 validador.py entrada.txt")
-        return
-
-    with open(sys.argv[1], 'r') as f:
-        linhas = [linha.strip() for linha in f if linha.strip()]
-    qtd = int(linhas[0])
-    expressoes = linhas[1:]
-
-    for expr in expressoes:
-        tokens = lexer(expr)
-        if tokens is None:
-            print("inválida")
-        else:
-            parser = Parser(tokens)
-            print("valida" if parser.parse() else "inválida")
-
-if __name__ == "__main__":
-    main()
