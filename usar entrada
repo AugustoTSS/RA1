@@ -1,0 +1,16 @@
+def processar_arquivo(arquivo_path):
+    with open(arquivo_path, 'r') as f:
+        linhas = [linha.strip() for linha in f if linha.strip()]
+    qtd = int(linhas[0])
+    expressoes = linhas[1:]
+
+    for expr in expressoes:
+        tokens = lexer(expr)
+        if tokens is None:
+            print("inválida")
+        else:
+            parser = Parser(tokens)
+            print("valida" if parser.parse() else "inválida")
+
+# Agora rode:
+processar_arquivo("entrada.txt")
