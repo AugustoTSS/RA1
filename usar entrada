@@ -1,3 +1,4 @@
+#augusto T|SS
 def processar_arquivo(arquivo_path):
     with open(arquivo_path, 'r') as f:
         linhas = [linha.strip() for linha in f if linha.strip()]
