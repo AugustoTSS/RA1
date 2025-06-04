@@ -1,40 +1,30 @@
 # Validador de Expressões de Lógica Proposicional em LaTeX
 
 Este programa valida expressões de lógica proposicional escritas em LaTeX, verificando se estão
-*lexico e gramaticalmente corretas*, conforme uma gramática LL(1).
+**léxica e gramaticalmente corretas**, conforme uma gramática LL(1).
 
-## Funcionalidade
+## Funcionalidades
 
-- Analisador léxico com máquina de estados finitos.
+- Analisador léxico baseado em máquina de estados finitos.
 - Parser sintático LL(1).
-- Suporte a:
-  - Conectivos: `\neg`, `\wedge`, `\vee`, `\rightarrow`, `\leftrightarrow`
-  - Constantes: `true`, `false`
-  - Proposições: `[0-9][0-9a-z]*`
+- Suporte aos seguintes elementos:
+  - **Conectivos**: `\neg`, `\wedge`, `\vee`, `\rightarrow`, `\leftrightarrow`
+  - **Constantes**: `true`, `false`
+  - **Proposições**: `[0-9][0-9a-z]*`
 
-## Formato de entrada
+## Formato do Arquivo de Entrada
 
-Arquivo .txt com:
-- Primeira linha: número de expressões
-- Linhas seguintes: expressões em LaTeX
+O arquivo `.txt` deve conter:
 
-## Exemplo:
+1. **Primeira linha**: um número inteiro indicando a quantidade de expressões.
+2. **Linhas seguintes**: uma expressão lógica por linha, escrita em LaTeX.
 
-txt
-2
-true
-(\neg false)
+### Exemplo de conteúdo do arquivo `entrada1.txt`:
 
+FORMULA → CONSTANTE | PROPOSICAO | FORMULAUNARIA | FORMULABINARIA
+CONSTANTE → true | false
+PROPOSICAO → [0-9][0-9a-z]*
+FORMULAUNARIA → ( \neg FORMULA )
+FORMULABINARIA → ( OPERADORBINARIO FORMULA FORMULA )
+OPERADORBINARIO→ \wedge | \vee | \rightarrow | \leftrightarrow
 
-Gramática usada:
- 
-FORMULA = CONSTANTE | PROPOSICAO | FORMULAUNARIA | FORMULABINARIA
-CONSTANTE = true | false
-PROPOSICAO = [0-9][0-9a-z]*
-FORMULAUNARIA = ( \neg FORMULA )
-FORMULABINARIA = ( OPERADORBINARIO FORMULA FORMULA )
-
-Como Executar:
-
-python3 validador.py 
-entrada1.txt
