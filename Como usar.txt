@@ -2,23 +2,23 @@
 # Validador de Expressões de Lógica Proposicional em LaTeX
 
 Este programa valida expressões de lógica proposicional escritas em LaTeX, verificando se estão
-**léxica e gramaticalmente corretas**, conforme uma gramática LL(1).
+léxica e gramaticalmente corretas**, conforme uma gramática LL(1).
 
 ## Funcionalidades
 
 - Analisador léxico baseado em máquina de estados finitos.
 - Parser sintático LL(1).
 - Suporte aos seguintes elementos:
-  - **Conectivos**: `\neg`, `\wedge`, `\vee`, `\rightarrow`, `\leftrightarrow`
-  - **Constantes**: `true`, `false`
-  - **Proposições**: `[0-9][0-9a-z]*`
+  - Conectivo/: `\neg`, `\wedge`, `\vee`, `\rightarrow`, `\leftrightarrow`
+  - Constantes: `true`, `false`
+  - Proposições: `[0-9][0-9a-z]*`
 
 ## Formato do Arquivo de Entrada
 
-O arquivo `.txt` deve conter:
+O arquivo `.txt` deve ter:
 
-1. **Primeira linha**: um número inteiro indicando a quantidade de expressões.
-2. **Linhas seguintes**: uma expressão lógica por linha, escrita em LaTeX.
+1. Primeira linha: um número inteiro indicando a quantidade de expressões.
+2. Linhas seguintes: uma expressão lógica por linha, escrita em LaTeX.
 
 ### Exemplo de conteúdo do arquivo `entrada1.txt`:
 
