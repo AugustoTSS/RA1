@@ -13,4 +13,4 @@ def processar_arquivo(arquivo_path):
             print("valida" if parser.parse() else "inválida")
 
 # Agora rode:
-processar_arquivo("entrada.txt")
+processar_arquivo("nome entrada.txt")
