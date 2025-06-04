@@ -1,4 +1,5 @@
 3
 true
-(\neg false)
-(\wedge p1 (\neg q))
+( \neg false )
+( \wedge true false )
+
