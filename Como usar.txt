@@ -1,3 +1,4 @@
+# Agusto TSS
 # Validador de Expressões de Lógica Proposicional em LaTeX
 
 Este programa valida expressões de lógica proposicional escritas em LaTeX, verificando se estão
